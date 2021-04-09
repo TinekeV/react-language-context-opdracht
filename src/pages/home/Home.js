@@ -9,7 +9,6 @@ function Home() {
     <div className="page-container">
         <h2>{content[activeLanguage].home.title}</h2>
         <p>{content[activeLanguage].home.introText}</p>
-        {console.log(activeLanguage)}
     </div>
   );
 }

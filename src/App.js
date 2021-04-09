@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,28 +8,10 @@ import Header from './components/header/Header';
 import Home from './pages/home/Home';
 import AboutUs from './pages/aboutUs/AboutUs';
 import AllPlants from './pages/allPlants/AllPlants';
-import { LanguageContext } from "./context/LanguageContext";
 
 function App() {
-    const [language, toggleLanguage] = useState('nl')
-
-    function setLanguageEs() {
-        toggleLanguage('es')
-    }
-
-    function setLanguageNl() {
-        toggleLanguage('nl')
-    }
-
-    const data = {
-        activeLanguage: language,
-        setEsFunction: setLanguageEs,
-        setNlFunction: setLanguageNl,
-    }
-
 
   return (
-      <LanguageContext.Provider value={data}>
           <Router>
               <Header />
               <Switch>
@@ -44,7 +26,6 @@ function App() {
                 </Route>
               </Switch>
           </Router>
-      </LanguageContext.Provider>
   );
 }
 
@@ -94,12 +75,12 @@ export default App;
 // [x] 12. Zorg ervoor dat op iedere pagina de juiste content wordt weergegeven op basis van de actieve taal
 // [ ] 13. Zorg ervoor dat je met een knop (button) in de header van taal kunt wisselen (gebruik OnClick op button)
 // [ ] 14. Zorg er ook voor dat er een andere vlag wordt weergegeven)
-// [ ] 14. Maak er een apart component van de Provider
-// [ ] 15.    - Kopieer de hele function App() uit App.js en plak dit in het context bestand
-// [ ]        - Verander de naam 'App' naar 'LanguageContextProvider' en voeg de children property toe
-// [ ]        - Vervang huidige componenten in deze functie door children property
-// [ ]        - Exporteer deze functie
-// [ ]        - Wikkel het nieuwe 'LanguageContextProvider' component om <App /> in index.js
+// [x] 15. Maak er een apart component van de Provider
+// [x] 16.    - Kopieer de hele function App() uit App.js en plak dit in het context bestand
+// [x]        - Verander de naam 'App' naar 'LanguageContextProvider' en voeg de children property toe
+// [x]        - Vervang huidige componenten in deze functie door children property
+// [x]        - Exporteer deze functie
+// [x]        - Wikkel het nieuwe 'LanguageContextProvider' component om <App /> in index.js
 
 
 

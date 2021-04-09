@@ -8,7 +8,7 @@ import './Header.css';
 import { LanguageContext } from "../../context/LanguageContext";
 
 function Header() {
-  const { activeLanguage } = useContext(LanguageContext)
+  const { activeLanguage, setEsFunction, setNlFunction } = useContext(LanguageContext)
 
   return (
     <>
@@ -27,11 +27,18 @@ function Header() {
               </li>
             <li className="language-switch">
               <p>{content[activeLanguage].header.changeTo}</p>
-              <button type="image">
-                <FlagNL />
-              </button>
 
-              <FlagES />
+              {activeLanguage === 'nl' &&
+              <button type="button" onClick={() => setEsFunction(!activeLanguage)}>
+                {<FlagES />}
+              </button>
+              }
+              {activeLanguage === 'es' &&
+              <button type="button" onClick={() => setNlFunction(!activeLanguage)}>
+                {<FlagNL />}
+              </button>
+              }
+
             </li>
           </ul>
         </nav>
